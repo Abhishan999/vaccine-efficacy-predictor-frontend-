@@ -15,7 +15,6 @@
         body {
             background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
             color: #333;
-            line-height: 1.6;
         }
 
         nav {
@@ -45,70 +44,44 @@
             color: #3498db;
         }
 
-        .nav-links {
+        .dropdown {
             display: flex;
             gap: 2rem;
             align-items: center;
         }
 
-        .nav-links a {
+        .dropdown a {
             text-decoration: none;
             color: #2c3e50;
             font-weight: 500;
             transition: color 0.3s ease;
         }
 
-        .nav-links a:hover {
+        .dropdown a:hover {
             color: #3498db;
         }
 
-        .auth-buttons {
-            display: flex;
-            gap: 1rem;
-            align-items: center;
-        }
-
-        .login-btn {
-            color: #3498db;
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        .sign-up-btn {
-            background-color: #3498db;
-            color: white;
-            padding: 0.5rem 1.5rem;
-            border-radius: 25px;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .sign-up-btn:hover {
-            background-color: #2980b9;
-            transform: translateY(-2px);
-        }
-
-        .dropdown {
+        .dropdown-content {
             position: relative;
             display: inline-block;
         }
 
-        .dropdown-content {
+        .dropdown-content-menu {
             display: none;
             position: absolute;
             background-color: #ffffff;
             min-width: 200px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
             padding: 0.5rem 0;
             z-index: 1;
         }
 
-        .dropdown:hover .dropdown-content {
+        .dropdown-content:hover .dropdown-content-menu {
             display: block;
         }
 
-        .dropdown-content a {
+        .dropdown-content-menu a {
             color: #2c3e50;
             padding: 0.75rem 1rem;
             text-decoration: none;
@@ -116,221 +89,114 @@
             transition: background-color 0.3s ease;
         }
 
-        .dropdown-content a:hover {
+        .dropdown-content-menu a:hover {
             background-color: #f8f9fa;
         }
 
-        .mobile-menu {
-            display: none;
-            cursor: pointer;
-        }
-
-        @media (max-width: 968px) {
-            .nav-links {
-                display: none;
-            }
-
-            .mobile-menu {
-                display: block;
-            }
-
-            .mobile-menu.active + .nav-links {
-                display: flex;
-                flex-direction: column;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: white;
-                padding: 1rem;
-                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            }
-        }
-
-        .main-content {
-            padding: 5rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
+        header {
+            margin-top: 80px;
             text-align: center;
+            padding: 2rem;
         }
 
-        .main-content h1 {
+        header h1 {
             font-size: 2.5rem;
             color: #2c3e50;
-            margin-bottom: 1rem;
         }
 
-        .main-content p {
-            font-size: 1.2rem;
+        header p {
+            margin-top: 1rem;
+            font-size: 1.25rem;
             color: #555;
-            margin-bottom: 2rem;
         }
 
-        .predictor-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2rem;
-            justify-content: center;
-            align-items: flex-start;
+        section {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 1rem;
         }
 
-        .predictor-card {
-            background: #fff;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-            padding: 2rem;
-            max-width: 300px;
-            flex: 1;
-            transition: transform 0.3s ease;
-        }
-
-        .predictor-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .predictor-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: #3498db;
-        }
-
-        .predictor-card p {
-            color: #666;
-            margin-bottom: 1.5rem;
-        }
-
-        .predictor-card button {
-            background: #3498db;
-            color: white;
-            border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
-
-        .predictor-card button:hover {
-            background: #2980b9;
-        }
-
-        .cta-section {
-            background: #3498db;
-            color: white;
-            padding: 2rem;
-            border-radius: 8px;
-            margin-top: 3rem;
-        }
-
-        .cta-section h2 {
+        section h2 {
             font-size: 2rem;
             margin-bottom: 1rem;
+            color: #2c3e50;
         }
 
-        .cta-section p {
-            font-size: 1.2rem;
-            margin-bottom: 1.5rem;
+        section p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #555;
         }
 
-        .cta-section a {
-            color: white;
-            background: #2980b9;
-            padding: 0.75rem 1.5rem;
-            border-radius: 25px;
-            text-decoration: none;
-            transition: background 0.3s ease;
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background-color: #f5f7fa;
+            color: #555;
+            margin-top: 2rem;
         }
 
-        .cta-section a:hover {
-            background: #1c6381;
+        footer p {
+            font-size: 1rem;
         }
     </style>
 </head>
 <body>
     <nav>
         <div class="nav-content">
-            <div class="logo">Vaccine<span>Efficacy</span><span>Predictor</span></div>
+            <div class="logo">Vaccine<span>Predictor</span></div>
             <div class="dropdown">
                 <a href="index.html">Home</a>
                 <div class="dropdown-content">
-                    <a href="form.html">Lab Testing for Researchers</a>
-            </div>
-        </div>
-                <div class="dropdown">
-                    <a href="about-page.html">About</a>
-                    <div class="dropdown-content">
-                        <a href="about-page.html">Our Mission</a>   
+                    <a href="#">About</a>
+                    <div class="dropdown-content-menu">
+                        <a href="about-page.html">Our Mission</a>
+                       
+                        
                     </div>
                 </div>
-                
-                <div class="dropdown">
-                    <a href="support.html">Support</a>
-                    <div class="dropdown-content">
+                <div class="dropdown-content">
+                    <a href="#">Services</a>
+                    <div class="dropdown-content-menu">
+                        <a href="form.html">Vaccine Predictor</a>
+                        <a href="analytics.html">Analytics Dashboard</a>
+                        <a href="reports.html">Custom Reports</a>
+                    </div>
+                </div>
+                <div class="dropdown-content">
+                    <a href="#">Support</a>
+                    <div class="dropdown-content-menu">
                         <a href="contact.html">Contact Us</a>
                         <a href="faq.html">FAQ</a>
                         <a href="helpdesk.html">Help Desk</a>
                         <a href="training.html">Training</a>
                     </div>
                 </div>
-            </div>
-            <div class="auth-buttons">
-                <a href="login.html" class="login-btn">Log In</a>
-                <a href="signup.html" class="sign-up-btn">Sign Up as Researcher/Tester</a>
+                <div class="dropdown-content">
+                    <a href="#">Researcher's Form</a>
+                    <div class="dropdown-content-menu">
+                        <a href="signup.html">Sign Up</a>
+                    </div>
+                </div>
             </div>
         </div>
     </nav>
 
-    <div class="main-content">
-        <h1>Welcome to the Vaccine Efficiency Predictor</h1>
-        <p>Analyze and predict the effectiveness of various vaccines with cutting-edge technology and real-time data insights.</p>
+    <header>
+        <h1>Welcome to Vaccine Efficiency Predictor</h1>
+        <p>Explore cutting-edge tools to analyze vaccine performance and contribute to global health research.</p>
+    </header>
 
-        <div class="predictor-container">
-            <div class="predictor-card">
-                <h3>Real-Time Predictions</h3>
-                <p>Get real-time predictions on vaccine efficiency based on current global and regional data.</p>
-                <button>Learn More</button>
-            </div>
-            <div class="predictor-card">
-                <h3>Custom Analytics</h3>
-                <p>Access in-depth analytics tailored to your needs, including population-based insights.</p>
-                <button>Explore Analytics</button>
-            </div>
-            <div class="predictor-card">
-                <h3>Data Integration</h3>
-                <p>Seamlessly integrate our predictions into your existing health and management systems.</p>
-                <button>Integrate Now</button>
-            </div>
-        </div>
+    <section>
+        <h2>What We Do</h2>
+        <p>
+            The Vaccine Efficiency Predictor platform uses advanced algorithms and extensive medical data to predict vaccine effectiveness across diverse populations. 
+            Our mission is to provide researchers and healthcare professionals with actionable insights to accelerate vaccine development and optimize public health strategies.
+        </p>
+    </section>
 
-        <div class="cta-section">
-            <h2>Take the First Step</h2>
-            <p>Submit your data and help us improve our database and research..</p>
-            <a href="useronboard.html">User Information form</a>
-        </div>
-    </div>
-
-    <script>
-        const mobileMenu = document.querySelector('.mobile-menu');
-        const navLinks = document.querySelector('.nav-links');
-
-        mobileMenu?.addEventListener('click', () => {
-            mobileMenu.classList.toggle('active');
-            navLinks.classList.toggle('show');
-        });
-
-        document.addEventListener('click', (e) => {
-            if (!e.target.closest('.nav-content')) {
-                mobileMenu?.classList.remove('active');
-                navLinks?.classList.remove('show');
-            }
-        });
-
-        if (window.innerWidth <= 968) {
-            document.querySelectorAll('.dropdown').forEach(dropdown => {
-                dropdown.addEventListener('click', (e) => {
-                    e.currentTarget.querySelector('.dropdown-content').classList.toggle('show');
-                });
-            });
-        }
-    </script>
+    <footer>
+        <p>Made by SYNTAX SQUAD</p>
+    </footer>
 </body>
 </html>

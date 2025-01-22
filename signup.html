@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vaccine Efficiency Predictor</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+            color: #333;
+        }
+
+        nav {
+            background-color: #ffffff;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .logo span {
+            color: #3498db;
+        }
+
+        .dropdown {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .dropdown a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .dropdown a:hover {
+            color: #3498db;
+        }
+
+        .dropdown-content {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content-menu {
+            display: none;
+            position: absolute;
+            background-color: #ffffff;
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            padding: 0.5rem 0;
+            z-index: 1;
+        }
+
+        .dropdown-content:hover .dropdown-content-menu {
+            display: block;
+        }
+
+        .dropdown-content-menu a {
+            color: #2c3e50;
+            padding: 0.75rem 1rem;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.3s ease;
+        }
+
+        .dropdown-content-menu a:hover {
+            background-color: #f8f9fa;
+        }
+
+        header {
+            margin-top: 80px;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+        }
+
+        header p {
+            margin-top: 1rem;
+            font-size: 1.25rem;
+            color: #555;
+        }
+
+        section {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 1rem;
+        }
+
+        section h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+
+        section p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background-color: #f5f7fa;
+            color: #555;
+            margin-top: 2rem;
+        }
+
+        footer p {
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-content">
+            <div class="logo">Vaccine<span>Predictor</span></div>
+            <div class="dropdown">
+                <a href="index.html">Home</a>
+                <div class="dropdown-content">
+                    <a href="#">About</a>
+                    <div class="dropdown-content-menu">
+                        <a href="our-mission.html">Our Mission</a>
+                        <a href="team.html">Our Team</a>
+                        <a href="technology.html">Technology</a>
+                    </div>
+                </div>
+                <div class="dropdown-content">
+                    <a href="#">Services</a>
+                    <div class="dropdown-content-menu">
+                        <a href="predictor.html">Vaccine Predictor</a>
+                        <a href="analytics.html">Analytics Dashboard</a>
+                        <a href="reports.html">Custom Reports</a>
+                    </div>
+                </div>
+                <div class="dropdown-content">
+                    <a href="#">Support</a>
+                    <div class="dropdown-content-menu">
+                        <a href="contact.html">Contact Us</a>
+                        <a href="faq.html">FAQ</a>
+                        <a href="helpdesk.html">Help Desk</a>
+                        <a href="training.html">Training</a>
+                    </div>
+                </div>
+                <div class="dropdown-content">
+                    <a href="#">Researcher's Form</a>
+                    <div class="dropdown-content-menu">
+                        <a href="signup.html">Sign Up</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header>
+        <h1>Welcome to Vaccine Efficiency Predictor</h1>
+        <p>Explore cutting-edge tools to analyze vaccine performance and contribute to global health research.</p>
+    </header>
+
+    <section>
+        <h2>What We Do</h2>
+        <p>
+            The Vaccine Efficiency Predictor platform uses advanced algorithms and extensive medical data to predict vaccine effectiveness across diverse populations. 
+            Our mission is to provide researchers and healthcare professionals with actionable insights to accelerate vaccine development and optimize public health strategies.
+        </p>
+    </section>
+
+    <footer>
+        <p>© 2025 Vaccine Predictor. All rights reserved.</p>
+    </footer>
+</body>
+</html>

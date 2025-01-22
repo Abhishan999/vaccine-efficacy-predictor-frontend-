@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vaccine Efficacy Predictor</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .card {
+            background: white;
+            max-width: 800px;
+            margin: 0 auto;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+
+        .card-header {
+            background-color: #EFF6FF;
+            padding: 20px;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .card-title {
+            font-size: 24px;
+            color: #1F2937;
+            margin-bottom: 8px;
+        }
+
+        .card-subtitle {
+            color: #6B7280;
+            font-size: 14px;
+        }
+
+        .card-content {
+            padding: 24px;
+        }
+
+        .risk-indicator {
+            padding: 16px;
+            margin-bottom: 24px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            border-left: 4px solid;
+        }
+
+        .risk-indicator.low {
+            background-color: #FEE2E2;
+            border-color: #EF4444;
+        }
+
+        .risk-indicator.medium {
+            background-color: #FEF3C7;
+            border-color: #F59E0B;
+        }
+
+        .risk-indicator.high {
+            background-color: #D1FAE5;
+            border-color: #10B981;
+        }
+
+        .section {
+            background-color: #F9FAFB;
+            border: 1px solid #E5E7EB;
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 16px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-left: 8px;
+        }
+
+        .grid {
+            display: grid;
+            gap: 16px;
+        }
+
+        .grid-2 {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .grid-3 {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .form-group {
+            margin-bottom: 12px;
+        }
+
+        label {
+            display: block;
+            font-weight: 500;
+            color: #374151;
+            margin-bottom: 4px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 8px 12px;
+            border: 1px solid #D1D5DB;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        select[multiple] {
+            height: 96px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #2563EB;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        button:hover {
+            background-color: #1D4ED8;
+        }
+
+        .card-footer {
+            background-color: #F9FAFB;
+            padding: 16px;
+            border-top: 1px solid #E5E7EB;
+            border-radius: 0 0 10px 10px;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            color: #6B7280;
+        }
+
+        .footer-content span.brand {
+            color: #2563EB;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .grid-2, .grid-3 {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="card-header">
+            <h1 class="card-title">Advanced Vaccine Efficacy Predictor</h1>
+            <div class="card-subtitle">Complete all sections for accurate prediction</div>
+        </div>
+        
+        <div class="card-content">
+            <div class="risk-indicator" id="riskIndicator">
+                <span>Current Risk Score: <span id="riskScore">0.0</span>%</span>
+            </div>
+
+            <form id="vaccineForm">
+                <div class="section">
+                    <div class="section-header">
+                        <span class="section-title">Vaccine Information</span>
+                    </div>
+                    <div class="grid grid-2">
+                        <div class="form-group">
+                            <label>Vaccine Type</label>
+                            <select name="vaccineType" required>
+                                <option value="">Select Type</option>
+                                <option value="mRNA">mRNA Vaccine</option>
+                                <option value="viral-vector">Viral Vector</option>
+                                <option value="protein-subunit">Protein Subunit</option>
+                                <option value="inactivated">Inactivated Virus</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Batch Number</label>
+                            <input type="text" name="batchNumber" placeholder="Enter batch number">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="section-header">
+                        <span class="section-title">Patient Profile</span>
+                    </div>
+                    <div class="grid grid-3">
+                        <div class="form-group">
+                            <label>Age Group</label>
+                            <select name="ageGroup" required>
+                                <option value="">Select Age</option>
+                                <option value="0-11">0-11 years</option>
+                                <option value="12-17">12-17 years</option>
+                                <option value="18-64">18-64 years</option>
+                                <option value="65+">65+ years</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Antibody Titer</label>
+                            <input type="number" name="antibodyTiter" placeholder="IU/mL">
+                        </div>
+                        <div class="form-group">
+                            <label>Previous Infections</label>
+                            <input type="number" name="previousInfections" min="0">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="section-header">
+                        <span class="section-title">Medical History</span>
+                    </div>
+                    <div class="grid grid-2">
+                        <div class="form-group">
+                            <label>Pre-existing Conditions</label>
+                            <select multiple name="conditions">
+                                <option value="diabetes">Diabetes</option>
+                                <option value="hypertension">Hypertension</option>
+                                <option value="heart-disease">Heart Disease</option>
+                                <option value="lung-disease">Lung Disease</option>
+                                <option value="immunodeficiency">Immunodeficiency</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Adverse Events</label>
+                            <select multiple name="adverseEvents">
+                                <option value="fever">Fever</option>
+                                <option value="pain">Injection Site Pain</option>
+                                <option value="fatigue">Fatigue</option>
+                                <option value="headache">Headache</option>
+                                <option value="none">None</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit">Calculate Comprehensive Efficacy Score</button>
+            </form>
+        </div>
+
+        <div class="card-footer">
+            <div class="footer-content">
+                <span>Made by</span>
+                <span class="brand">Syntax Squad</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('vaccineForm');
+            const riskIndicator = document.getElementById('riskIndicator');
+            const riskScore = document.getElementById('riskScore');
+            let currentScore = 0;
+
+            // Update risk indicator class based on score
+            function updateRiskIndicator(score) {
+                riskIndicator.classList.remove('low', 'medium', 'high');
+                if (score < 33) {
+                    riskIndicator.classList.add('low');
+                } else if (score < 66) {
+                    riskIndicator.classList.add('medium');
+                } else {
+                    riskIndicator.classList.add('high');
+                }
+                riskScore.textContent = score.toFixed(1);
+            }
+
+            // Handle form input changes
+            form.addEventListener('input', function(e) {
+                // Simulate risk calculation (replace with actual logic)
+                currentScore = Math.random() * 100;
+                updateRiskIndicator(currentScore);
+            });
+
+            // Handle form submission
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const formData = new FormData(form);
+                const data = Object.fromEntries(formData);
+                
+                // Log form data (replace with actual submission logic)
+                console.log('Form submitted:', data);
+                alert('Form submitted! Check console for data.');
+            });
+        });
+    </script>
+</body>
+</html>
